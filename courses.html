@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDU Course Management System</title>
+    
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        h5.title {
+            margin: 1.2rem;
+            text-align: center;
+            background: #ececec;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before { 
+            content: "»";
+        }
+
+        .pointerCursor {
+             cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-sm bg-white">
+                <div class="navbar-header">
+                    <a class="nav-link" href="/">
+                        <img class="img-fluid" src="assets/img/logo.jpg" alt="">
+                    </a>
+                </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <h5 class="title">CDU Course Management System</h5>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+        </div>
+        <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"></li>
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page" id="currentDegree"></li>
+            </ol>
+        </nav>
+        
+        <div class="row">
+           <div class="col-md-12">
+                <div class="pb-2 mt-4 mb-2">
+                    <h4 class="text-center"><span id="currentDegreeTitle"></span> Courses</h4>
+               </div>
+           </div>
+        </div>
+
+        <div class="row" id="htmlCourses">
+        </div>
+    </div>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const degree_id = urlParams.get('degree_id');
+
+    loadCourses(degree_id);
+
+    function loadCourses(degree_id) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data = JSON.parse(this.responseText);
+
+                const filtered_data = data.filter(course => course.degree_id == degree_id);
+                
+                $("#currentDegree").text(filtered_data[0].degree_title);
+                $('#currentDegreeTitle').text(filtered_data[0].degree_title);
+
+                htmlCourses = "";
+                for(i = 0; i < filtered_data.length; i++)
+                {
+                    htmlCourses += '<div class="col-md-4 mb-2">';
+                    htmlCourses += '<div class="card">';
+                    htmlCourses += '<a class="pointerCursor" onclick="redirectToCourseSpecializations('+ filtered_data[i].course_id + ')">';
+                    htmlCourses += '<img class="card-img-top" src="assets/img/'+ filtered_data[i].course_img +'" alt="Card image cap">';
+                    htmlCourses += '</a>';
+                    htmlCourses += '<div class="card-body text-center">';
+                    htmlCourses += '<h5 class="card-text">'+ filtered_data[i].course_title +'</h5>';
+                    htmlCourses += '<a class="btn btn-primary" onclick="redirectToCourseSpecializations('+ filtered_data[i].course_id + ')">Explore</a>';
+                    htmlCourses += '</div>';
+                    htmlCourses += '</div>';
+                    htmlCourses += '</div>';
+                }
+              
+                $("#htmlCourses").append(htmlCourses);
+
+            }
+        };
+        xhttp.open("GET", "courses.json", true);
+        xhttp.send();
+    }
+
+    function redirectToCourseSpecializations(course_id) {
+        window.location.href = "specializations.html?course_id="+course_id;
+    }
+
+</script>
+
+</body>
+</html>

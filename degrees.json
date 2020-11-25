@@ -1,0 +1,12 @@
+[
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "degree_img": "undergraduate.jpg"
+    },
+    {
+        "degree_id": "2",
+        "degree_title": "Graduate",
+        "degree_img": "graduate.jpg"
+    }
+]

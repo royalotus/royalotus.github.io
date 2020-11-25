@@ -1,0 +1,108 @@
+[
+    {
+        "semester": "1",
+        "spec_id": "1",
+        "regular_subjects": [
+            {
+                "name": "Design and Innovation: Communicating Technology",
+                "code": "CUC106",
+                "prerequisite": []
+             },
+             {
+                "name": "Computing Fundamentals",
+                "code": "HIT164",
+                "prerequisite": []
+             },
+             {
+                "name": "Operating Systems and Applications",
+                "code": "HIT172",
+                "prerequisite": []
+             }
+        ]
+    },
+    {
+        "semester": "2",
+        "spec_id": "1",
+        "regular_subjects": [
+            {
+                "Name": "Cultural Intelligence and Capability",
+                "Code": "CUC107",
+                "Prerequisite": []
+             },
+             {
+                "Name": "Statistics",
+                "Code": "STA101",
+                "Prerequisite": []
+             },
+             {
+                "Name": "Software Now",
+                "Code": "HIT137",
+                "Prerequisite": []
+             }
+        ]
+    },
+    {
+        "semester": "3",
+        "spec_id": "1",
+        "regular_subjects": [
+            {
+                "Name": "Mobile Web Structures",
+                "Code": "HIT226",
+                "Prerequisite": ["HIT164"]
+             },
+             {
+                "Name": "Database Concepts (replaces BIS234)",
+                "Code": "HIT234",
+                "Prerequisite": []
+             }
+        ]
+    },
+    {
+        "semester": "4",
+        "spec_id": "1",
+        "regular_subjects": [
+            {
+                "Name": "Network Engineering Applications",
+                "Code": "HIT274",
+                "Prerequisite": []
+             },
+             {
+                "Name": "Project Management",
+                "Code": "PMO201",
+                "Prerequisite": []
+             }
+        ]
+    },
+    {
+        "semester": "5",
+        "spec_id": "1",
+        "regular_subjects": [
+            {
+                "Name": "Human Computer Interaction Design",
+                "Code": "HIT381",
+                "Prerequisite": ["HIT226"]
+             },
+             {
+                "Name": "Enterprise IT Management (replaces BIS342",
+                "Code": "HIT363",
+                "Prerequisite": []
+             }
+        ]
+    },
+    {
+        "semester": "6",
+        "spec_id": "1",
+        "regular_subjects": [
+            {
+                "Name": "Cyber Security (replaces BIS243)",
+                "Code": "HIT333",
+                "Prerequisite": []
+             },
+             {
+                "Name": "Capstone Project",
+                "Code": "HIT401",
+                "Prerequisite": []
+             }
+        ]
+    }
+]

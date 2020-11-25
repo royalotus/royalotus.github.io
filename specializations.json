@@ -1,0 +1,172 @@
+[
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "1",
+        "spec_title": "Information Technology",
+        "spec_img": "undergraduate.jpg",
+        "prerequisites": [
+            {
+                "title": "* Choose at least 2 level 300 or above specialist electives.",
+                "match_title": "* You successfully have choosen at least 2 level 300 or above specialist electives.",
+                "type": "SE",
+                "condition_type": "min",
+                "condition": 2,
+                "units": ["HIT326", "HIT332", "HIT353", "HIT365", "HIT374", "HIT339", "HIT372"]
+            }
+        ],
+        "total_credit": 240,
+        "course_summary": [
+            {
+                "level_title": "Level 100",
+                "unit": "CUC106",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 100",
+                "unit": "CUC107",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 100",
+                "unit": "HIT172",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 100",
+                "unit": "STA101",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 100",
+                "unit": "HIT164",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 100",
+                "unit": "HIT137",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 200",
+                "unit": "HIT226",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 200",
+                "unit": "HIT274",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 200",
+                "unit": "HIT234",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 200",
+                "unit": "PMO201",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "HIT381",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "HIT333",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "HIT363",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "HIT401",
+                "credit": 10
+            }
+        ]
+    },
+    {
+        "degree_id": "2",
+        "degree_title": "Graduate",
+        "course_id": "4",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "6",
+        "spec_title": "Cyber Security",
+        "spec_img": "graduate.jpg",
+        "prerequisites": [],
+        "total_credit": 160,
+        "course_summary": [
+            {
+                "level_title": "Level 100",
+                "unit": "HIT172",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 100",
+                "unit": "HIT137",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 200",
+                "unit": "HIT234",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 200",
+                "unit": "HIT274",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "PRT581",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "PRT572",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "PRT551",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "PRT573",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "PRT574",
+                "credit": 10
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "PRT558",
+                "credit": 20
+            },
+            {
+                "level_title": "Level 300 or above",
+                "unit": "PRT571",
+                "credit": 10
+            },
+            {
+                "level_title": "Master Thesis",
+                "unit": "PRT820",
+                "credit": 20
+            },
+            {
+                "level_title": "Master Thesis",
+                "unit": "PRT820-Continuation",
+                "credit": 20
+            }
+        ]
+    }
+]

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDU Course Management System</title>
+
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        h5.title {
+            margin: 1.2rem;
+            text-align: center;
+            background: #ececec;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none !important;
+            color:#000000;
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before {
+            content: "»";
+        }
+
+        .pointerCursor {
+             cursor: pointer;
+        }
+
+        th, td {
+            text-align: center;
+        }
+
+        th, td {
+            white-space: nowrap;
+        }
+
+        td, select.form-control, input.form-control {
+            font-size: 15px;
+        }
+
+        input[type=checkbox] {
+            font-size: 5px;
+        }
+
+        
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            padding: 0px;
+            font-size: 20px;
+            z-index: 142;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-sm bg-white">
+                <div class="navbar-header">
+                    <a class="nav-link" href="/">
+                        <img class="img-fluid" src="assets/img/logo.jpg" alt="">
+                    </a>
+                </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <h5 class="title">CDU Course Management System</h5>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+        </div>
+        <hr>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"></li>
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item" id="currentDegree"><a href="#"></a></li>
+                <li class="breadcrumb-item" id="currentCourse"><a href="#"></a></li>
+                <li class="breadcrumb-item" id="currentSpecialization"><a href="#"></a></li>
+                <li class="breadcrumb-item" id="currentSpecDetails"><a href="#"></a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="currentStudentStatus"></li>
+            </ol>
+        </nav>
+
+        
+        <hr>
+        
+        
+        <div class="col-md-12 sticky">
+            <div class="card">
+                <div class="card-body" style="background: rgb(0,122,135); color: whitesmoke;">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <span style="background: #fd9494; border: 1px solid; padding: 0px 10px; margin: auto 10px;"></span> Cannot choose in this semester.
+                            </div>
+                            <div class="col-md-6">
+                            <span style="background: #ffd9b1; border: 1px solid; padding: 0px 10px; margin: auto 10px;"></span> Need prerequisites.
+                            </div>
+                            <div class="col-md-6">
+                            <span style="background: #bcffc1; border: 1px solid; padding: 0px 10px; margin: auto 10px;"></span> Selected units for coming semester.
+                            </div>
+                            <div class="col-md-6">
+                            <span style="background: #bed8ff; border: 1px solid; padding: 0px 10px; margin: auto 10px;"></span> Completed units.
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+           <div class="col-md-12">
+                <div class="pb-2 mt-4 mb-2">
+                    <h4 class="text-center" id="currentStudentStatusTitle"></h4>
+               </div>
+           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead id="showLegend">
+                            <!-- <tr style="background-color: #211545; color: white;">
+                                <th>Legend</th>
+                                <th>CU = Common Unit</th>
+                                <th>CO = Core Unit</th>
+                                <th>SE = Specialist Elective</th>
+                                <th>E = Elective</th>
+                            </tr> -->
+                        </thead>
+                    </table>
+                </div>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody id="mainTable">
+                            <tr style="background-color: #dc8633">
+                                <td colspan="2">
+                                    <h5>Semester One</h5>
+                                </td>
+                                <td colspan="2">
+                                    <h5>Semester Two</h5>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="col-md-6 text-left">
+                <button class="btn btn-info" onclick="onBack()">Back</button>
+            </div>
+
+            <hr>
+
+            <div class="col-md-12">
+                    <div class="pb-2 mt-4 mb-2">
+                        <h4 class="text-center">Course Summary</h4>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead id="courseSummaryHead">
+                        <!-- <tr class="no-wrap" style="background-color: #007a87; color: white;">
+                            <th>Total Credit</th>
+                            <th>Level 100</th>
+                            <th>Level 200</th>
+                            <th>Level 300 or above</th>
+                            <th>Specialist Elective</th>
+                            <th>Elective</th>
+                            <th>Total Remaining</th>
+                        </tr> -->
+                    </thead>
+                    <tbody id="courseSummaryBody">
+                        <!-- <tr style="background-color: #FCFFFF">
+                            <th>240</th>
+
+                            <th id="level100Credit"></th>
+                            <th id="level200Credit"></th>
+                            <th id="level300Credit"></th>
+
+                            <th id="specialElectiveCredit"></th>
+                            <th id="electiveCredit"></th>
+                            <th id="totalRemainingCredit"></th>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="alertSE">
+            </div>
+
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    const currentStudiedUnits = JSON.parse(localStorage.getItem('newSelectedUnits'));
+
+    // var co_cu = 10 * currentStudiedUnits.co_cu.length;
+    // var elective = 10 * currentStudiedUnits.elective.length;
+    // var seElective = 10 * currentStudiedUnits.seElective.length;
+    
+    // $('#cocuCredit').html(co_cu);
+    // $('#electiveCredit').html(elective);
+    // $('#specialElectiveCredit').html(seElective);
+
+    // $('#totalRemainingCredit').html(240 - (co_cu + elective + seElective));
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const detail = urlParams.get('detail');
+    const student_status = urlParams.get('student_status');
+    const spec_id = urlParams.get('spec_id');
+
+    var file_name = '';
+
+    if(detail == 'Semester One')
+    {
+        file_name = 'sem_1_units.json';
+    } else if(detail == 'Semester Two')
+    {
+        file_name = 'sem_2_units.json';
+    }
+
+    function onBack() {
+        window.location.href = "new_detail.html?spec_id="+spec_id+"&detail="+detail+"&student_status="+student_status;
+    }
+
+    function showLegend(degree_id) {
+        var appendLegend = '';
+        if(degree_id == 1)
+        {
+            appendLegend += '<tr style="background-color: #211545; color: white;">';
+            appendLegend += '<th>Legend</th>';
+            appendLegend += '<th>CU = Common Unit</th>';
+            appendLegend += '<th>CO = Core Unit</th>';
+            appendLegend += '<th>SE = Specialist Elective</th>';
+            appendLegend += '<th>E = Elective</th>';
+            appendLegend += '</tr>';
+        } else if(degree_id == 2)
+        {
+            appendLegend += '<tr style="background-color: #211545; color: white;">';
+            appendLegend += '<th>Legend</th>';
+            appendLegend += '<th>CO = Core Unit</th>';
+            appendLegend += '<th>R = Research</th>';
+            appendLegend += '<th>SE = Specialist Elective</th>';
+            appendLegend += '</tr>';
+        }
+        
+        $("#showLegend").append(appendLegend);
+    }
+
+    loadSpecDetails();
+
+    function loadSpecDetails() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data = JSON.parse(this.responseText);
+
+                const filtered_data = data.filter(specializations => specializations.spec_id == spec_id);
+
+                $("#currentDegree a").text(filtered_data[0].degree_title);
+                var degree_url = "courses.html?degree_id="+filtered_data[0].degree_id;
+                $("#currentDegree a").attr("href", degree_url);
+                
+                showLegend(filtered_data[0].degree_id);
+
+                $("#currentCourse a").text(filtered_data[0].course_title);
+                var course_url = "specializations.html?course_id="+filtered_data[0].course_id;
+                $("#currentCourse a").attr("href", course_url);
+
+                $("#currentSpecialization a").text(filtered_data[0].spec_title);
+                var spec_url = "spec_details.html?spec_id="+filtered_data[0].spec_id;
+                $("#currentSpecialization a").attr("href", spec_url);
+
+                $("#currentSpecDetails a").text(detail);
+                var spec_detail_url = "student_status.html?spec_id="+spec_id+"&detail="+detail;
+                $("#currentSpecDetails a").attr("href", spec_detail_url);
+
+                $('#currentStudentStatus').text(student_status);
+                $('#currentStudentStatusTitle').text(student_status + ' - Unit Summary Report');
+
+                appendTr = '';
+
+                // yearly data
+                var electiveTags = [];
+                var seElectiveTags_sem_1 = [];
+                var seElectiveTags_sem_2 = [];
+                for(i = 1; i <= filtered_data.length; i++)
+                {
+                    appendTr += '<tr class="no-wrap" style="background-color: #211545; color: white;">';
+                    appendTr += '<td>Year '+ i +'</td>';
+                    appendTr += '<td>Legend</td>';
+                    appendTr += '<td>Year '+ i +'</td>';
+                    appendTr += '<td>Legend</td>';
+                    appendTr += '</tr>';
+
+                    const yearly_data = filtered_data.filter(unit => unit.year == i)[0];
+
+                    for(j = 0; j < yearly_data.units.length; j++)
+                    {
+                        var sem_1 = yearly_data.units[j].filter(unit => unit.semester == 1)[0];
+                        var sem_2 = yearly_data.units[j].filter(unit => unit.semester == 2)[0];
+
+                        appendTr += '<tr>';
+
+                        var result_sem_1 = funcAppendTr(sem_1, i, 1);
+                        var result_sem_2 = funcAppendTr(sem_2, i, 2);
+                        appendTr += result_sem_1.appendTr;
+                        appendTr += result_sem_2.appendTr;
+
+                        if(result_sem_1.electiveTag != "")
+                        {
+                            electiveTags.push(result_sem_1.electiveTag);
+                        }
+                        if(result_sem_2.electiveTag != "")
+                        {
+                            electiveTags.push(result_sem_2.electiveTag);
+                        }
+
+                        if(result_sem_1.seElectiveTag != "")
+                        {
+                            seElectiveTags_sem_1.push(result_sem_1.seElectiveTag);
+                        }
+                        if(result_sem_2.seElectiveTag != "")
+                        {
+                            seElectiveTags_sem_2.push(result_sem_2.seElectiveTag);
+                        }
+
+                        appendTr += '</tr>';
+                    }
+                }
+
+                $("#mainTable").append(appendTr);
+
+                loadElectives(electiveTags.join());
+
+                loadSpecializedElectives(spec_id, 'sem_1', seElectiveTags_sem_1.join());
+
+                loadSpecializedElectives(spec_id, 'sem_2', seElectiveTags_sem_2.join());
+
+                $('[data-toggle="tooltip"]').tooltip();
+
+            }
+        };
+        xhttp.open("GET", file_name, true);
+        xhttp.send();
+    }
+
+    function funcAppendTr(sem_data, year, semester)
+    {
+        var appendTr = '';
+        var electiveTag = '';
+        var seElectiveTag = '';
+
+        var prerequisite = 'No Prerequisites';
+        if (sem_data.prerequisite.length > 0)
+        {
+            prerequisite = 'Prerequisites: ' + sem_data.prerequisite.join();
+        }
+
+        if((sem_data.type == "CU") | (sem_data.type == "CO") | (sem_data.type == "R"))
+        {
+            if(currentStudiedUnits.co_cu.includes(sem_data.code))
+            {
+                appendTr += '<td style="background: #bcffc1;">';
+                appendTr += '<a data-toggle="tooltip" data-placement="top" title="'+ prerequisite +'">';
+                appendTr += '<strong>'+ sem_data.code +'</strong> <br>';
+                appendTr += '</a>';
+                appendTr += sem_data.title;
+                appendTr += '</td>';
+                appendTr += '<td class="align-middle" style="background: #bcffc1;">'+ sem_data.type +'</td>';
+            } else if (sem_data.prerequisite.every(r=> currentStudiedUnits.co_cu.includes(r)))
+            {
+                appendTr += '<td>';
+                appendTr += '<a data-toggle="tooltip" data-placement="top" title="'+ prerequisite +'">';
+                appendTr += '<strong>'+ sem_data.code +'</strong> <br>';
+                appendTr += sem_data.title;
+                appendTr += '</a>';
+                appendTr += '</td>';
+                appendTr += '<td class="align-middle">'+ sem_data.type +'</td>';
+            } else {
+                appendTr += '<td style="background: #ffd9b1;">';
+                appendTr += '<a data-toggle="tooltip" data-placement="top" title="'+ prerequisite +'">';
+                appendTr += '<strong>'+ sem_data.code +'</strong> <br>';
+                appendTr += '</a>';
+                appendTr += sem_data.title;
+                appendTr += '</td>';
+                appendTr += '<td class="align-middle" style="background: #ffd9b1;">'+ sem_data.type +'</td>';
+            }
+        } else if (sem_data.type == "E")
+        {
+            var filtered_data = currentStudiedUnits.elective.filter(current => ((current.code == sem_data.code) & (current.year == year) & (current.semester == semester)));
+            if(filtered_data.length > 0)
+            {
+                appendTr += '<td style="background: #bcffc1;">';
+                appendTr += '<strong class="replaceElective">'+ filtered_data[0].unit +'</strong>';
+                appendTr += '</td>';
+                appendTr += '<td class="align-middle" style="background: #bcffc1;">'+ sem_data.type +'</td>';
+            } else {
+                electiveTag = '#elective_'+ year +'_'+ semester +'_'+ sem_data.code;
+
+                appendTr += '<td>';
+                appendTr += '<input class="form-control" id="elective_'+ year +'_'+ semester +'_'+ sem_data.code +'" placeholder="Select an Elective">';
+                appendTr += '</td>';
+                appendTr += '<td>E</td>';
+            }
+
+        } else if (sem_data.type == "SE")
+        {
+            var filtered_data = currentStudiedUnits.seElective.filter(current => ((current.code == sem_data.code) & (current.year == year) & (current.semester == semester)));
+            if(filtered_data.length > 0)
+            {
+                appendTr += '<td style="background: #bcffc1;">';
+                appendTr += '<strong class="replaceSEElective">'+ filtered_data[0].unit +'</strong>';
+                appendTr += '</td>';
+                appendTr += '<td class="align-middle" style="background: #bcffc1;">'+ sem_data.type +'</td>';
+            } else {
+                seElectiveTag = '#seElective_'+ year +'_'+ semester +'_'+ sem_data.code;
+
+                appendTr += '<td>';
+                appendTr += '<select class="form-control" id="seElective_'+ year +'_'+ semester +'_'+ sem_data.code +'">';
+                appendTr += '<option value="default_value">Select Special Elective</option>';
+                appendTr += '</select>';
+                appendTr += '</td>';
+                appendTr += '<td>SE</td>';
+            }
+        } else {
+            appendTr += '<td></td>';
+            appendTr += '<td></td>';
+        }
+
+        return {
+            appendTr,
+            electiveTag,
+            seElectiveTag
+        };
+    }
+
+    function loadSpecializedElectives(spec_id, detail, seElectiveTags) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data = JSON.parse(this.responseText);
+
+                var semester = 0;
+                if(detail == 'sem_1')
+                {
+                    semester = 1;
+                } else if(detail == 'sem_2')
+                {
+                    semester = 2;
+                }
+
+                const filtered_data = data.filter(specializations => (specializations.spec_id == spec_id) & (specializations.semester == semester))[0];
+                
+                if(filtered_data)
+                {
+                    replaceSEElectiveLoop:
+                    for(i = 0; i < filtered_data.special_electives.length; i++)
+                    {
+                        var replaceSEElective = document.getElementsByClassName("replaceSEElective");
+                        for(var j = 0; j < replaceSEElective.length; j++)
+                        {
+                            var compareData = filtered_data.special_electives[i].title.split(':')[0];
+
+                            if(replaceSEElective[j].innerHTML == compareData){
+                                replaceSEElective[j].insertAdjacentHTML("afterend", "<br>" + filtered_data.special_electives[i].title.split(':')[1]);
+                                continue replaceSEElectiveLoop;
+                            }
+                        }
+                        
+                        var seElective = [];
+                        for(var k = 0; k < currentStudiedUnits.seElective.length; k++)
+                        {
+                            seElective.push(currentStudiedUnits.seElective[k].unit);
+                        }
+                        for(var l = 0; l < currentStudiedUnits.elective.length; l++)
+                        {
+                            seElective.push(currentStudiedUnits.elective[l].unit);
+                        }
+                        for(var m = 0; m < currentStudiedUnits.co_cu.length; m++)
+                        {
+                            seElective.push(currentStudiedUnits.co_cu[m]);
+                        }
+                        if (!(filtered_data.special_electives[i].prerequisite.every(r=> seElective.includes(r))))
+                            continue
+
+                        $(seElectiveTags).append($('<option>',
+                            {
+                                value: filtered_data.special_electives[i].code,
+                                text: filtered_data.special_electives[i].title
+                            }
+                        ));
+                    }
+                }
+            }
+        };
+        xhttp.open("GET", 'specialized_electives.json', true);
+        xhttp.send();
+    }
+
+    function loadElectives(electiveTags) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);
+
+                var replaceElective = document.getElementsByClassName("replaceElective");
+                for(var j = 0; j < replaceElective.length; j++)
+                {
+                    var filtered_data = data.filter(datum => datum.split(':')[0] == replaceElective[j].innerHTML)[0];
+
+                    replaceElective[j].insertAdjacentHTML("afterend", "<br>" + filtered_data.split(':')[1]);
+
+                    data = data.filter(datum => datum != filtered_data);
+                }
+
+                $(electiveTags).autocomplete({
+                    source: data
+                });
+            }
+        };
+        xhttp.open("GET", 'electives.json', true);
+        xhttp.send();
+    }
+
+    loadSpecializations();
+    function loadSpecializations(electiveTags) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);
+
+                var filtered_data = data.filter(datum => datum.spec_id == spec_id)[0];
+
+                var courseSummaryHead = '';
+                var courseSummaryBody = '';
+                if(filtered_data.degree_id == 1)
+                {
+                    var level100 = 0;
+                    var level200 = 0;
+                    var level300 = 0;
+
+                    for(var i = 0; i < currentStudiedUnits.co_cu.length; i++)
+                    {
+                        var level_data = filtered_data.course_summary.filter(cs => cs.unit == currentStudiedUnits.co_cu[i])[0];
+
+                        if (level_data.level_title == "Level 100")
+                            level100 += level_data.credit;
+                        if (level_data.level_title == "Level 200")
+                            level200 += level_data.credit;
+                        if (level_data.level_title == "Level 300 or above")
+                            level300 += level_data.credit; 
+                    }
+
+                    var elective = 10 * currentStudiedUnits.elective.length;
+                    var seElective = 10 * currentStudiedUnits.seElective.length;
+                    
+                    courseSummaryHead += '<tr class="no-wrap" style="background-color: #007a87; color: white;">';
+                    courseSummaryHead += '<th>Total Credit</th>';
+                    courseSummaryHead += '<th>Level 100</th>';
+                    courseSummaryHead += '<th>Level 200</th>';
+                    courseSummaryHead += '<th>Level 300 or above</th>';
+                    courseSummaryHead += '<th>Specialist Elective</th>';
+                    courseSummaryHead += '<th>Elective</th>';
+                    courseSummaryHead += '<th>Total Remaining</th>';
+                    courseSummaryHead += '</tr>';
+
+                    courseSummaryBody += '<tr style="background-color: #FCFFFF">';
+                    courseSummaryBody += '<td>'+ filtered_data.total_credit +'</td>';
+                    courseSummaryBody += '<td>'+ level100 +'</td>';
+                    courseSummaryBody += '<td>'+ level200 +'</td>';
+                    courseSummaryBody += '<td>'+ level300 +'</td>';
+                    courseSummaryBody += '<td>'+ seElective +'</td>';
+                    courseSummaryBody += '<td>'+ elective +'</td>';
+                    courseSummaryBody += '<td>'+ (filtered_data.total_credit - level100 - level200 - level300 - seElective - elective) +'</td>';
+                    courseSummaryBody += '</tr>';
+
+                    $("#courseSummaryHead").append(courseSummaryHead);
+                    $("#courseSummaryBody").append(courseSummaryBody);
+                } else if (filtered_data.degree_id == 2){
+                    var level100 = 0;
+                    var level200 = 0;
+                    var level300 = 0;
+                    var masterThesis = 0;
+
+                    for(var i = 0; i < currentStudiedUnits.co_cu.length; i++)
+                    {
+                        var level_data = filtered_data.course_summary.filter(cs => cs.unit == currentStudiedUnits.co_cu[i])[0];
+
+                        if (level_data.level_title == "Level 100")
+                            level100 += level_data.credit;
+                        if (level_data.level_title == "Level 200")
+                            level200 += level_data.credit;
+                        if (level_data.level_title == "Level 300 or above")
+                            level300 += level_data.credit; 
+                        if (level_data.level_title == "Master Thesis")
+                            masterThesis += level_data.credit; 
+                    }
+
+                    var elective = 10 * currentStudiedUnits.elective.length;
+                    var seElective = 10 * currentStudiedUnits.seElective.length;
+                    
+                    courseSummaryHead += '<tr class="no-wrap" style="background-color: #007a87; color: white;">';
+                    courseSummaryHead += '<th>Total Credit</th>';
+                    courseSummaryHead += '<th>Level 100</th>';
+                    courseSummaryHead += '<th>Level 200</th>';
+                    courseSummaryHead += '<th>Level 300 or above</th>';
+                    courseSummaryHead += '<th>Specialist Elective</th>';
+                    courseSummaryHead += '<th>Master Thesis</th>';
+                    courseSummaryHead += '<th>Total Remaining</th>';
+                    courseSummaryHead += '</tr>';
+
+                    courseSummaryBody += '<tr style="background-color: #FCFFFF">';
+                    courseSummaryBody += '<td>'+ filtered_data.total_credit +'</td>';
+                    courseSummaryBody += '<td>'+ level100 +'</td>';
+                    courseSummaryBody += '<td>'+ level200 +'</td>';
+                    courseSummaryBody += '<td>'+ level300 +'</td>';
+                    courseSummaryBody += '<td>'+ seElective +'</td>';
+                    courseSummaryBody += '<td>'+ masterThesis +'</td>';
+                    courseSummaryBody += '<td>'+ (filtered_data.total_credit - level100 - level200 - level300 - seElective - masterThesis) +'</td>';
+                    courseSummaryBody += '</tr>';
+
+                    $("#courseSummaryHead").append(courseSummaryHead);
+                    $("#courseSummaryBody").append(courseSummaryBody);
+                }
+
+                // Undergrad Information Tech
+                var seElective = [];
+                var countCondition = 0;
+                for(var k = 0; k < currentStudiedUnits.seElective.length; k++)
+                {
+                    if (filtered_data.prerequisites[0].units.filter(unit => unit == currentStudiedUnits.seElective[k].unit).length > 0)
+                        countCondition = countCondition + 1;
+                }
+
+                if(filtered_data.prerequisites.length > 0)
+                {
+                    if(countCondition < filtered_data.prerequisites[0].condition) {
+                        $('#alertSE').html(filtered_data.prerequisites[0].title);
+                        $("#alertSE").css({"color": "red"});
+                    } else {
+                        $('#alertSE').html(filtered_data.prerequisites[0].match_title);
+                        $("#alertSE").css({"color": "#5cb85"});
+                    }
+                }
+
+            }
+        };
+        xhttp.open("GET", 'specializations.json', true);
+        xhttp.send();
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDU Course Management System</title>
+    
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        h5.title {
+            margin: 1.2rem;
+            text-align: center;
+            background: #ececec;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before { 
+            content: "»";
+        }
+
+        .pointerCursor {
+             cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-sm bg-white">
+                <div class="navbar-header">
+                    <a class="nav-link" href="/">
+                        <img class="img-fluid" src="assets/img/logo.jpg" alt="">
+                    </a>
+                </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <h5 class="title">CDU Course Management System</h5>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+        </div>
+        <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"></li>
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item" id="currentDegree"><a href="#"></a></li>
+              <li class="breadcrumb-item active" aria-current="page" id="currentCourse"></li>
+            </ol>
+        </nav>
+        
+        <div class="row">
+           <div class="col-md-12">
+                <div class="pb-2 mt-4 mb-2">
+                    <h4 class="text-center"><span id="currentCourseTitle"></span> Specializations</h4>
+               </div>
+           </div>
+        </div>
+
+        <div class="row" id="htmlSpecializations">
+        </div>
+    </div>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const course_id = urlParams.get('course_id');
+
+    loadSpecializations(course_id);
+
+    function loadSpecializations(course_id) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                data = JSON.parse(this.responseText);
+
+                const filtered_data = data.filter(specializations => specializations.course_id == course_id);
+                
+                $("#currentDegree a").text(filtered_data[0].degree_title);
+                var degree_url = "courses.html?degree_id="+filtered_data[0].degree_id;
+                $("#currentDegree a").attr("href", degree_url);
+                $("#currentCourse").text(filtered_data[0].course_title);
+                $('#currentCourseTitle').text(filtered_data[0].course_title);
+
+
+                htmlSpecializations = "";
+                for(i = 0; i < filtered_data.length; i++)
+                {
+                    htmlSpecializations += '<div class="col-md-4 mb-2">';
+                    htmlSpecializations += '<div class="card">';
+                    htmlSpecializations += '<a class="pointerCursor" onclick="redirectToSpecDetails('+ filtered_data[i].spec_id +')">';
+                    htmlSpecializations += '<img class="card-img-top" src="assets/img/'+ filtered_data[i].spec_img +'" alt="Card image cap">';
+                    htmlSpecializations += '</a>';
+                    htmlSpecializations += '<div class="card-body text-center">';
+                    htmlSpecializations += '<h5 class="card-text">'+ filtered_data[i].spec_title +'</h5>';
+                    htmlSpecializations += '<a class="btn btn-primary" onclick="redirectToSpecDetails('+ filtered_data[i].spec_id +')">Explore</a>';
+                    htmlSpecializations += '</div>';
+                    htmlSpecializations += '</div>';
+                    htmlSpecializations += '</div>';
+                }
+              
+                $("#htmlSpecializations").append(htmlSpecializations);
+
+            }
+        };
+        xhttp.open("GET", "specializations.json", true);
+        xhttp.send();
+    }
+
+    function redirectToSpecDetails(spec_id) {
+        window.location.href = "spec_details.html?spec_id="+spec_id;
+    }
+
+</script>
+
+</body>
+</html>

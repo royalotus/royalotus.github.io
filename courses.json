@@ -1,0 +1,16 @@
+[
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "course_img": "undergraduate.jpg"
+    },
+    {
+        "degree_id": "2",
+        "degree_title": "Graduate",
+        "course_id": "4",
+        "course_title": "IT and Network Engineering",
+        "course_img": "graduate.jpg"
+    }
+]

@@ -1,0 +1,489 @@
+[
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "1",
+        "spec_title": "Information Technology",
+        "year": "1",
+        "units": [
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "CUC107",
+                    "title": "Cultural Intelligence and Capability",
+                    "type": "CU",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "STA101",
+                    "title": "Statistics",
+                    "type": "CU",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "HIT137",
+                    "title": "Software Now",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "E",
+                    "title": "Select Elective",
+                    "code": "1",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ]
+        ]
+    },
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "1",
+        "spec_title": "Information Technology",
+        "year": "2",
+        "units": [
+            [
+                {
+                    "code": "CUC106",
+                    "title": "Design and Innovation: Communicating Technology",
+                    "type": "CU",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "HIT274",
+                    "title": "Network Engineering Applications",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "HIT172",
+                    "title": "Operating Systems and Applications",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "PMO201",
+                    "title": "Project Management",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "HIT164",
+                    "title": "Computing Fundamentals",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "SE",
+                    "title": "Select Special Elective",
+                    "code": "1",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "E",
+                    "title": "Select Elective",
+                    "code": "1",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "SE",
+                    "title": "Select Special Elective",
+                    "code": "2",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ]
+        ]
+    },
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "1",
+        "spec_title": "Information Technology",
+        "year": "3",
+        "units": [
+            [
+                {
+                    "code": "HIT226",
+                    "title": "Mobile Web Structures",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": ["HIT164"]
+                },
+                {
+                    "code": "HIT333",
+                    "title": "Cyber Security (replaces BIS243)",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "HIT234",
+                    "title": "Database Concepts (replaces BIS234)",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "HIT401",
+                    "title": "Capstone Project",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+
+                {
+                    "type": "SE",
+                    "title": "Select Special Elective",
+                    "code": "1",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "SE",
+                    "title": "Select Special Elective",
+                    "code": "1",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+                
+            ],
+            [
+                {
+                    "type": "SE",
+                    "title": "Select Special Elective",
+                    "code": "2",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "E",
+                    "title": "Select Elective",
+                    "code": "1",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+                
+            ]
+        ]
+    },
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "1",
+        "spec_title": "Information Technology",
+        "year": "4",
+        "units": [
+            [
+                {
+                    "code": "HIT381",
+                    "title": "Human Computer Interaction Design",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": ["HIT226"]
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "HIT363",
+                    "title": "Enterprise IT Management (replaces BIS342)",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "SE",
+                    "title": "Select Special Elective",
+                    "code": "1",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+                
+            ],
+            [
+                {
+                    "type": "E",
+                    "title": "Select Elective",
+                    "code": "1",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ]
+        ]
+    },
+
+
+
+
+
+
+
+
+    {
+        "degree_id": "2",
+        "degree_title": "Graduate",
+        "course_id": "4",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "6",
+        "spec_title": "Cyber Security",
+        "year": "1",
+        "units": [
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "HIT137",
+                    "title": "Software Now",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "HIT274",
+                    "title": "Network Engineering Applications",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "PRT572",
+                    "title": "Communications and Network Security Engineering",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "type": "",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "PRT573",
+                    "title": "Identity Access Management and Security Operations",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ]
+        ]
+    },
+    {
+        "degree_id": "2",
+        "degree_title": "Graduate",
+        "course_id": "4",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "6",
+        "spec_title": "Cyber Security",
+        "year": "2",
+        "units": [
+            [
+                {
+                    "code": "HIT172",
+                    "title": "Operating Systems and Applications",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "PRT558",
+                    "title": "Security Practice (20cp)",
+                    "type": "CO",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "HIT234",
+                    "title": "Database Concepts",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "code": "PRT820",
+                    "title": "Master Thesis (20cp) (repeatable)",
+                    "type": "R",
+                    "semester": "2",
+                    "prerequisite": ["PRT572", "PRT573", "PRT574", "PRT571", "PRT558"]
+                }
+            ],
+            [
+                {
+                    "code": "PRT581",
+                    "title": "Principles of Software Systems",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "PRT551",
+                    "title": "Project Management, Risk and Reliability",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ]    
+        ]
+    },
+    {
+        "degree_id": "2",
+        "degree_title": "Graduate",
+        "course_id": "4",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "6",
+        "spec_title": "Cyber Security",
+        "year": "3",
+        "units": [
+            [
+                {
+                    "code": "PRT574",
+                    "title": "Security Assessment in Software Development",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "PRT571",
+                    "title": "Asset Security and Risk Management",
+                    "type": "CO",
+                    "semester": "1",
+                    "prerequisite": []
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ],
+            [
+                {
+                    "code": "PRT820-Continuation",
+                    "title": "Master Thesis (20cp) (repeatable)",
+                    "type": "R",
+                    "semester": "1",
+                    "prerequisite": ["PRT820"]
+                },
+                {
+                    "type": "",
+                    "semester": "2",
+                    "prerequisite": []
+                }
+            ]
+        ]
+    }
+]

@@ -1,0 +1,79 @@
+[
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "1",
+        "spec_title": "Information Technology",
+        "semester": "1",
+        "special_electives": [
+            {
+                "code": "HIT235",
+                "title": "HIT235: Digital Systems and Computer Architecture",
+                "prerequisite": []
+            },
+            {
+                "code": "HIT237",
+                "title": "HIT237: Building Interactive Software",
+                "prerequisite": ["HIT137"]
+            },
+            {
+                "code": "HIT326",
+                "title": "HIT326: Database-Driven Web Applications",
+                "prerequisite": ["HIT226"]
+            },
+            {
+                "code": "HIT332",
+                "title": "HIT332: Embedded and Mobile Systems",
+                "prerequisite": ["HIT235"]
+            },
+            {
+                "code": "HIT353",
+                "title": "HIT353: Business Intelligence and Data Mining",
+                "prerequisite": []
+            },
+            {
+                "code": "HIT365",
+                "title": "HIT365: C Programming",
+                "prerequisite": ["HIT137"]
+            },
+            {
+                "code": "HIT374",
+                "title": "HIT374: Enterprise Network Engineering",
+                "prerequisite": ["HIT274"]
+            }
+        ]
+    },
+    {
+        "degree_id": "1",
+        "degree_title": "Undergraduate",
+        "course_id": "1",
+        "course_title": "IT and Network Engineering",
+        "spec_id": "1",
+        "spec_title": "Information Technology",
+        "semester": "2",
+        "special_electives": [
+            {
+                "code": "HIT220",
+                "title": "HIT220: Algorithms and Complexity",
+                "prerequisite": []
+            },
+            {
+                "code": "HIT238",
+                "title": "HIT238: The Mobile Paradigm",
+                "prerequisite": ["HIT137", "HIT226"]
+            },
+            {
+                "code": "HIT339",
+                "title": "HIT339: Distributed Development",
+                "prerequisite": ["HIT237"]
+            },
+            {
+                "code": "HIT372",
+                "title": "HIT372: Organisation Network Infrastructure",
+                "prerequisite": ["HIT172"]
+            }
+        ]
+    }
+]
